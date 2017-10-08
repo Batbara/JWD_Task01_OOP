@@ -1,11 +1,12 @@
 package by.tc.task01.main;
 
-import static by.tc.task01.entity.criteria.SearchCriteria.*;
-
 import by.tc.task01.entity.Appliance;
 import by.tc.task01.entity.criteria.Criteria;
 import by.tc.task01.service.ApplianceService;
 import by.tc.task01.service.ServiceFactory;
+
+import static by.tc.task01.entity.criteria.SearchCriteria.Oven;
+import static by.tc.task01.entity.criteria.SearchCriteria.TabletPC;
 
 public class Main {
 
@@ -18,6 +19,7 @@ public class Main {
 		//////////////////////////////////////////////////////////////////
 
 		Criteria<Oven> criteriaOven = new Criteria<Oven>();
+		criteriaOven.setApplianceType("Oven");
 		criteriaOven.add(Oven.CAPACITY, 3);
 
 		appliance = service.find(criteriaOven);
@@ -27,6 +29,7 @@ public class Main {
 		//////////////////////////////////////////////////////////////////
 
 		criteriaOven = new Criteria<Oven>();
+		criteriaOven.setApplianceType("Oven");
 		criteriaOven.add(Oven.HEIGHT, 200);
 		criteriaOven.add(Oven.DEPTH, 300);
 
@@ -37,11 +40,12 @@ public class Main {
 		//////////////////////////////////////////////////////////////////
 		
 		Criteria<TabletPC> criteriaTabletPC = new Criteria<TabletPC>();
+		criteriaTabletPC.setApplianceType("TabletPC");
 		criteriaTabletPC.add(TabletPC.COLOR, "BLUE");
 		criteriaTabletPC.add(TabletPC.DISPLAY_INCHES, 14);
 		criteriaTabletPC.add(TabletPC.MEMORY_ROM, 4);
 
-		appliance = service.find(criteriaOven);
+		appliance = service.find(criteriaTabletPC);
 
 		PrintApplianceInfo.print(appliance);
 
