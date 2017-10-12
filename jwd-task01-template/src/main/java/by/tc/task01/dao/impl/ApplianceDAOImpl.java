@@ -30,6 +30,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
         try {
             searchData = DataParser.parseData(criteria);
         } catch (FileNotFoundException e) {
+            System.err.println("Can't open file!");
             return null;
         }
         return searchData;
